@@ -1,15 +1,119 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --card-hover: #334155;
+    --accent: #38bdf8;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --success: #4ade80;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text);
+    padding: 1.5rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#game-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#time {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    background: var(--card-bg);
+    padding: 0.35rem 1.2rem;
+    border-radius: 12px;
+}
+
+#victory {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--success);
+    min-height: 1.5rem;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
 .card {
-    border: 2px solid black;
-    background-color: steelblue;
-    margin: 10px;
-    border-radius: 10%;
+    background: var(--card-bg);
+    border-radius: 12px;
     cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
 }
 
-.card:hover {
-    transform: scale(1.05);
+.card:hover:not(.flipped):not(.matched) {
+    background: var(--card-hover);
+    transform: translateY(-3px);
 }
 
-img {
-    border-radius: 10%
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: fadeIn 0.2s ease forwards;
+}
+
+.card.matched {
+    cursor: default;
+    opacity: 0.65;
+    outline: 3px solid var(--success);
+    transform: scale(0.96);
+}
+
+footer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
