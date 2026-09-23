@@ -1,3 +1,17 @@
+async function loadModule() {
+    try {
+        let module = await import('./layout.js');
+
+        module.displayHeader();
+        module.displayFooter();
+    } catch {
+        document.querySelector('site-header').innerHTML = '<h1>Memory</h1>';
+        document.querySelector('site-footer').innerHTML = '<p>© 2026 Dylan MESNAGE</p>';
+    }
+}
+
+loadModule();
+
 let dimension = 150;
 let imgStart = 1 + Math.floor(Math.random() * 99);
 let firstCard = null;

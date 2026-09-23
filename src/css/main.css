@@ -137,7 +137,7 @@ footer {
 @media (max-width: 800px) {
     #game-board {
         grid-template-columns: repeat(4, minmax(65px, 1fr));
-        gap: 16px;
+        gap: 15px;
         width: 100%;
     }
 
