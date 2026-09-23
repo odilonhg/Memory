@@ -21,5 +21,19 @@ function shuffle(array) {
     return array;
 }
 
-ids = shuffle(ids);
+function initGame() {
+    const board = document.querySelector("#game-board");
+    ids = shuffle(ids);
 
+    ids.forEach((id) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.dataset.value = `https://picsum.photos/id/${id}/${dimension}`;
+        card.style.width = `${dimension}px`; card.style.height = `${dimension}px`;
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+        board.appendChild(card);
+    });
+}
+
+initGame();
