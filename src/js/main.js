@@ -76,6 +76,7 @@ function initGame() {
         card.style.width = `${dimension}px`; card.style.height = `${dimension}px`;
         card.setAttribute("role", "button");
         card.setAttribute("tabindex", "0");
+        card.setAttribute("aria-label", "Card");
         card.addEventListener("click", () => handleCardClick(card));
         board.appendChild(card);
     });
