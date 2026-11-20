@@ -87,4 +87,4 @@ This project is open-source and distributed under the terms of the **GNU General
 
 ## 👤 Author
 
-Developed by **Dylan Mesnage**.
+Developed by **Dylan Mesnage** using IA (Gemini).
